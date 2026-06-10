@@ -4,9 +4,7 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/CrazyPrince12/portfolio)
 
-> 🔁 **Remplace `YOUR_GITHUB_USERNAME`** dans l'URL ci-dessus par ton vrai pseudo GitHub avant de pousser le dépôt — sinon le bouton ne fonctionnera pas.
-
----
+___
 
 ## ✨ Aperçu
 
