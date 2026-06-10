@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- BASE -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- RESPONSIVE MOBILE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!-- SEO -->
+  <meta name="description" content="Portfolio de Voufo Francis Bedel, comptable et gestionnaire d'entreprise basé à Yaoundé, Cameroun. Expert SAGE SAARI, tenue de comptabilité et gestion de paie.">
+  <meta name="keywords" content="comptable, Yaoundé, Cameroun, SAGE, BTS CGE, gestion entreprise, comptabilité">
+  <meta name="author" content="Voufo Francis Bedel">
+  <meta name="robots" content="index, follow">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="/favicon.png" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- SAFARI iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Francis Bedel">
+
+  <!-- THEME COLOR -->
+  <meta name="theme-color" content="#C8A96E">
+
+  <!-- TITRE -->
+  <title>Voufo Francis Bedel — Comptable & Gestionnaire d'Entreprise</title>
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://voufo-francis-bedel.vercel.app">
+  <meta property="og:title" content="Voufo Francis Bedel — Comptable & Gestionnaire d'Entreprise">
+  <meta property="og:description" content="Portfolio professionnel · Expert SAGE SAARI · BTS CGE · Yaoundé, Cameroun · Disponible pour opportunités">
+  <meta property="og:image" content="https://voufo-francis-bedel.vercel.app/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Voufo Francis Bedel - Comptable Camerounais">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="Francis Bedel Portfolio">
+
+  <!-- TWITTER / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Voufo Francis Bedel — Comptable & Gestionnaire d'Entreprise">
+  <meta name="twitter:description" content="Portfolio professionnel · Expert SAGE SAARI · BTS CGE · Yaoundé, Cameroun">
+  <meta name="twitter:image" content="https://voufo-francis-bedel.vercel.app/assets/images/og-image.png">
+  <meta name="twitter:image:alt" content="Voufo Francis Bedel - Comptable Camerounais">
+
+  <!-- PWA MANIFEST -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- TAILWIND CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#0A0A0F',
+            'bg-secondary': '#111118',
+            'accent': '#C8A96E',
+            'accent-soft': '#E8C97E22',
+            'text-primary': '#F0EDE8',
+            'text-muted': '#7A7A8A',
+            'border-c': '#1E1E2E',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          borderRadius: {
+            'xs': '2px',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- i18next -->
+  <script src="https://unpkg.com/i18next@23.11.5/dist/umd/i18next.min.js"></script>
+
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="bg-bg-primary text-text-primary font-sans antialiased">
+
+  <!-- ═══════════ LOADING SCREEN ═══════════ -->
+  <div id="loader" class="fixed inset-0 z-[100] bg-bg-primary flex flex-col items-center justify-center">
+    <div class="text-text-muted font-mono text-sm tracking-widest mb-8" id="loader-counter">00%</div>
+    <div class="font-display text-3xl md:text-5xl tracking-widest text-text-primary" id="loader-name">
+      <span class="opacity-0">V</span><span class="opacity-0">O</span><span class="opacity-0">U</span><span class="opacity-0">F</span><span class="opacity-0">O</span><span class="mx-3"></span><span class="opacity-0">F</span><span class="opacity-0">R</span><span class="opacity-0">A</span><span class="opacity-0">N</span><span class="opacity-0">C</span><span class="opacity-0">I</span><span class="opacity-0">S</span><span class="mx-3"></span><span class="opacity-0">B</span><span class="opacity-0">E</span><span class="opacity-0">D</span><span class="opacity-0">E</span><span class="opacity-0">L</span>
+    </div>
+    <div class="absolute bottom-8 text-text-muted font-mono text-xs tracking-widest">PORTFOLIO 2025</div>
+  </div>
+
+  <!-- ═══════════ SIDEBAR (DESKTOP) ═══════════ -->
+  <aside id="sidebar" class="hidden md:flex fixed top-0 left-0 h-screen w-[240px] lg:w-[280px] xl:w-[300px] bg-bg-secondary border-r border-border-c flex-col p-8 z-40">
+    <div class="mb-12">
+      <h2 class="font-display text-2xl text-accent mb-1">Francis Bedel</h2>
+      <p class="text-xs text-text-muted tracking-wider uppercase" data-i18n="sidebar.role">Comptable</p>
+    </div>
+
+    <nav class="flex-1">
+      <ul class="space-y-4">
+        <li><a href="#hero" class="nav-link block text-sm text-text-muted hover:text-accent transition-colors py-1" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="#about" class="nav-link block text-sm text-text-muted hover:text-accent transition-colors py-1" data-i18n="nav.about">À Propos</a></li>
+        <li><a href="#skills" class="nav-link block text-sm text-text-muted hover:text-accent transition-colors py-1" data-i18n="nav.skills">Compétences</a></li>
+        <li><a href="#timeline" class="nav-link block text-sm text-text-muted hover:text-accent transition-colors py-1" data-i18n="nav.experience">Expérience</a></li>
+        <li><a href="#services" class="nav-link block text-sm text-text-muted hover:text-accent transition-colors py-1" data-i18n="nav.services">Services</a></li>
+        <li><a href="#contact" class="nav-link block text-sm text-text-muted hover:text-accent transition-colors py-1" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="space-y-3 text-xs text-text-muted font-mono mb-6">
+      <a href="/cdn-cgi/l/email-protection#513723303f323822273e24373e11363c30383d7f323e3c" class="flex items-center gap-2 hover:text-accent transition-colors break-all">
+        <span class="text-accent">✉</span> <span class="__cf_email__" data-cfemail="1b7d697a757872686d746e7d745b7c767a727735787476">[email&#160;protected]</span>
+      </a>
+      <a href="tel:+237694268225" class="flex items-center gap-2 hover:text-accent transition-colors">
+        <span class="text-accent">☏</span> +237 694 26 82 25
+      </a>
+      <div class="flex items-center gap-2">
+        <span class="text-accent">⌖</span> <span data-i18n="sidebar.location">Yaoundé, Cameroun</span>
+      </div>
+    </div>
+
+    <button id="lang-toggle" class="border border-border-c hover:border-accent text-xs font-mono tracking-widest py-2 px-4 rounded-xs transition-all">
+      <span id="lang-label">EN</span>
+    </button>
+  </aside>
+
+  <!-- ═══════════ MOBILE HEADER ═══════════ -->
+  <header class="md:hidden fixed top-0 left-0 right-0 z-40 bg-bg-primary/90 backdrop-blur-lg border-b border-border-c px-4 py-3 flex items-center justify-between" style="padding-top: calc(0.75rem + env(safe-area-inset-top));">
+    <div>
+      <h2 class="font-display text-lg text-accent">Francis Bedel</h2>
+    </div>
+    <button id="mobile-menu-btn" aria-label="Menu" class="w-10 h-10 flex flex-col items-center justify-center gap-1.5 touch-target">
+      <span class="block w-6 h-px bg-text-primary transition-all" id="bar1"></span>
+      <span class="block w-6 h-px bg-text-primary transition-all" id="bar2"></span>
+      <span class="block w-6 h-px bg-text-primary transition-all" id="bar3"></span>
+    </button>
+  </header>
+
+  <!-- ═══════════ MOBILE MENU OVERLAY ═══════════ -->
+  <div id="mobile-menu" class="md:hidden fixed inset-0 z-30 bg-bg-primary/98 backdrop-blur-xl hidden flex-col items-center justify-center" style="padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom);">
+    <nav class="text-center">
+      <ul class="space-y-6">
+        <li><a href="#hero" class="mobile-nav-link font-display text-3xl text-text-primary hover:text-accent transition-colors" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="#about" class="mobile-nav-link font-display text-3xl text-text-primary hover:text-accent transition-colors" data-i18n="nav.about">À Propos</a></li>
+        <li><a href="#skills" class="mobile-nav-link font-display text-3xl text-text-primary hover:text-accent transition-colors" data-i18n="nav.skills">Compétences</a></li>
+        <li><a href="#timeline" class="mobile-nav-link font-display text-3xl text-text-primary hover:text-accent transition-colors" data-i18n="nav.experience">Expérience</a></li>
+        <li><a href="#services" class="mobile-nav-link font-display text-3xl text-text-primary hover:text-accent transition-colors" data-i18n="nav.services">Services</a></li>
+        <li><a href="#contact" class="mobile-nav-link font-display text-3xl text-text-primary hover:text-accent transition-colors" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="mobile-lang-toggle" class="mt-10 border border-border-c hover:border-accent text-xs font-mono tracking-widest py-2 px-4 rounded-xs transition-all">
+      <span id="mobile-lang-label">EN</span>
+    </button>
+  </div>
+
+  <!-- ═══════════ MAIN CONTENT ═══════════ -->
+  <main class="md:ml-[240px] lg:ml-[280px] xl:ml-[300px] pt-16 md:pt-0 pb-20 md:pb-0">
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <section id="hero" class="min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-24 py-20 relative">
+      <div class="max-w-5xl">
+        <p class="text-accent font-mono text-xs md:text-sm tracking-widest mb-6 reveal" data-i18n="hero.greeting">— BIENVENUE</p>
+        <h1 class="font-display font-light text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-[0.95] tracking-tight mb-6" id="hero-name">
+          Voufo Francis<br><span class="text-accent italic">Bedel</span>
+        </h1>
+        <p class="text-lg md:text-2xl text-text-primary/80 font-light mb-3 reveal" data-i18n="hero.title">Comptable & Gestionnaire d'Entreprise</p>
+        <p class="text-sm md:text-base text-text-muted font-mono tracking-wider reveal" data-i18n="hero.subtitle">BTS CGE · Yaoundé · Disponible</p>
+
+        <div class="flex flex-wrap gap-4 mt-10 reveal">
+          <a href="#contact" class="group bg-accent text-bg-primary px-6 py-3 rounded-xs text-sm font-medium tracking-wide hover:bg-accent/90 transition-all touch-target" data-i18n="hero.cta_contact">
+            Me contacter →
+          </a>
+          <a href="https://wa.me/237694268225" target="_blank" rel="noopener" class="border border-border-c hover:border-accent text-text-primary px-6 py-3 rounded-xs text-sm font-medium tracking-wide transition-all touch-target">
+            WhatsApp
+          </a>
+          <a href="/cdn-cgi/l/email-protection#781e0a19161b110b0e170d1e17381f15191114561b1715" class="border border-border-c hover:border-accent text-text-primary px-6 py-3 rounded-xs text-sm font-medium tracking-wide transition-all touch-target">
+            Email
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-10 left-6 md:left-16 lg:left-24 flex items-center gap-3 text-text-muted">
+        <span class="font-mono text-xs tracking-widest" data-i18n="hero.scroll">DÉFILER</span>
+        <div class="w-12 h-px bg-accent animate-pulse"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════ MARQUEE ═══════════ -->
+    <div class="border-y border-border-c py-6 overflow-hidden bg-bg-secondary">
+      <div class="marquee flex gap-12 whitespace-nowrap font-display text-3xl md:text-5xl italic text-text-muted">
+        <span>Rigueur</span><span class="text-accent">·</span>
+        <span>Précision</span><span class="text-accent">·</span>
+        <span>Excellence</span><span class="text-accent">·</span>
+        <span>Intégrité</span><span class="text-accent">·</span>
+        <span>Rigueur</span><span class="text-accent">·</span>
+        <span>Précision</span><span class="text-accent">·</span>
+        <span>Excellence</span><span class="text-accent">·</span>
+        <span>Intégrité</span><span class="text-accent">·</span>
+      </div>
+    </div>
+
+    <!-- ═══════════ ABOUT ═══════════ -->
+    <section id="about" class="px-6 md:px-16 lg:px-24 py-24 md:py-32">
+      <div class="max-w-6xl">
+        <p class="text-accent font-mono text-xs tracking-widest mb-4 reveal">— 01 / À PROPOS</p>
+        <h2 class="font-display text-4xl md:text-6xl mb-16 reveal" data-i18n="about.title">À Propos</h2>
+
+        <div class="grid md:grid-cols-5 gap-12 items-start">
+          <div class="md:col-span-2 reveal">
+            <div class="aspect-[3/4] bg-bg-secondary border border-border-c rounded-xs overflow-hidden relative">
+              <img src="/assets/images/profile.png" alt="Voufo Francis Bedel" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full font-display text-7xl text-accent/30\'>VFB</div>'">
+            </div>
+          </div>
+
+          <div class="md:col-span-3 space-y-6">
+            <p class="text-lg md:text-xl font-light text-text-primary/90 leading-relaxed reveal" data-i18n="about.bio1">
+              Jeune comptable diplômé, passionné par la rigueur des chiffres et la précision des écritures. Formé au BTS CGE, je mets à votre service une expertise en tenue de comptabilité, gestion de paie et conseil en gestion d'entreprise.
+            </p>
+            <p class="text-text-muted leading-relaxed reveal" data-i18n="about.bio2">
+              Basé à Yaoundé, je suis disponible pour accompagner les PME et entrepreneurs camerounais dans la structuration et l'optimisation de leur gestion financière.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 pt-6 reveal">
+              <div class="border border-border-c p-4 rounded-xs">
+                <p class="text-accent font-mono text-xs tracking-widest mb-2" data-i18n="about.qualities_title">QUALITÉS</p>
+                <ul class="text-sm space-y-1 text-text-primary/80">
+                  <li data-i18n="about.q1">· Rigoureux</li>
+                  <li data-i18n="about.q2">· Ponctuel</li>
+                  <li data-i18n="about.q3">· Adaptable</li>
+                  <li data-i18n="about.q4">· Esprit d'équipe</li>
+                </ul>
+              </div>
+              <div class="border border-border-c p-4 rounded-xs">
+                <p class="text-accent font-mono text-xs tracking-widest mb-2" data-i18n="about.languages_title">LANGUES</p>
+                <ul class="text-sm space-y-1 text-text-primary/80">
+                  <li data-i18n="about.l1">· Français — C1</li>
+                  <li data-i18n="about.l2">· Anglais — B1</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ SKILLS ═══════════ -->
+    <section id="skills" class="px-6 md:px-16 lg:px-24 py-24 md:py-32 bg-bg-secondary border-y border-border-c">
+      <div class="max-w-6xl">
+        <p class="text-accent font-mono text-xs tracking-widest mb-4 reveal">— 02 / COMPÉTENCES</p>
+        <h2 class="font-display text-4xl md:text-6xl mb-16 reveal" data-i18n="skills.title">Compétences</h2>
+
+        <!-- Tabs -->
+        <div class="flex flex-wrap gap-2 mb-10 border-b border-border-c reveal">
+          <button class="skill-tab active px-4 md:px-6 py-3 text-sm font-mono tracking-wider transition-all touch-target" data-tab="logiciels" data-i18n="skills.tab1">LOGICIELS</button>
+          <button class="skill-tab px-4 md:px-6 py-3 text-sm font-mono tracking-wider transition-all touch-target" data-tab="techniques" data-i18n="skills.tab2">TECHNIQUES</button>
+          <button class="skill-tab px-4 md:px-6 py-3 text-sm font-mono tracking-wider transition-all touch-target" data-tab="bureautique" data-i18n="skills.tab3">BUREAUTIQUE</button>
+          <button class="skill-tab px-4 md:px-6 py-3 text-sm font-mono tracking-wider transition-all touch-target" data-tab="soft" data-i18n="skills.tab4">SOFT SKILLS</button>
+        </div>
+
+        <!-- Tab contents -->
+        <div id="skill-content" class="min-h-[200px]">
+          <!-- LOGICIELS -->
+          <div class="skill-panel active grid sm:grid-cols-2 lg:grid-cols-3 gap-4" data-panel="logiciels">
+            <div class="skill-card border border-border-c p-6 rounded-xs hover:border-accent transition-all">
+              <p class="font-display text-2xl text-accent mb-2">SAGE SAARI</p>
+              <p class="text-sm text-text-muted" data-i18n="skills.s1">Compta 100 — Maîtrise avancée</p>
+            </div>
+            <div class="skill-card border border-border-c p-6 rounded-xs hover:border-accent transition-all">
+              <p class="font-display text-2xl text-accent mb-2">SAGE PAIE</p>
+              <p class="text-sm text-text-muted" data-i18n="skills.s2">Gestion complète de la paie</p>
+            </div>
+            <div class="skill-card border border-border-c p-6 rounded-xs hover:border-accent transition-all">
+              <p class="font-display text-2xl text-accent mb-2">CV 6</p>
+              <p class="text-sm text-text-muted" data-i18n="skills.s3">Logiciel comptable</p>
+            </div>
+          </div>
+
+          <!-- TECHNIQUES -->
+          <div class="skill-panel hidden grid sm:grid-cols-2 gap-4" data-panel="techniques">
+            <div class="skill-card border border-border-c p-6 rounded-xs hover:border-accent transition-all">
+              <p class="font-display text-xl text-accent mb-2" data-i18n="skills.t1_title">Tenue de comptabilité</p>
+              <p class="text-sm text-text-muted" data-i18n="skills.t1_desc">Journaux, grand-livre, balance</p>
+            </div>
+            <div class="skill-card border border-border-c p-6 rounded-xs hover:border-accent transition-all">
+              <p class="font-display text-xl text-accent mb-2" data-i18n="skills.t2_title">Mise en place comptabilité</p>
+              <p class="text-sm text-text-muted" data-i18n="skills.t2_desc">Plan comptable, paramétrage</p>
+            </div>
+            <div class="skill-card border border-border-c p-6 rounded-xs hover:border-accent transition-all">
+              <p class="font-display text-xl text-accent mb-2" data-i18n="skills.t3_title">Gestion d'entreprise</p>
+              <p class="text-sm text-text-muted" data-i18n="skills.t3_desc">Pilotage, contrôle de gestion</p>
+            </div>
+          </div>
+
+          <!-- BUREAUTIQUE -->
+          <div class="skill-panel hidden grid sm:grid-cols-2 gap-4" data-panel="bureautique">
+            <div class="skill-card border border-border-c p-6 rounded-xs hover:border-accent transition-all">
+              <p class="font-display text-xl text-accent mb-2">Microsoft Word</p>
+              <p class="text-sm text-text-muted" data-i18n="skills.b1">Rédaction professionnelle</p>
+            </div>
+            <div class="skill-card border border-border-c p-6 rounded-xs hover:border-accent transition-all">
+              <p class="font-display text-xl text-accent mb-2">Microsoft Excel</p>
+              <p class="text-sm text-text-muted" data-i18n="skills.b2">Tableaux, formules, analyse</p>
+            </div>
+          </div>
+
+          <!-- SOFT SKILLS -->
+          <div class="skill-panel hidden grid sm:grid-cols-2 lg:grid-cols-4 gap-4" data-panel="soft">
+            <div class="skill-card border border-border-c p-6 rounded-xs text-center hover:border-accent transition-all">
+              <p class="text-3xl mb-2">🤝</p>
+              <p class="font-display text-lg text-accent" data-i18n="skills.sk1">Travail d'équipe</p>
+            </div>
+            <div class="skill-card border border-border-c p-6 rounded-xs text-center hover:border-accent transition-all">
+              <p class="text-3xl mb-2">💬</p>
+              <p class="font-display text-lg text-accent" data-i18n="skills.sk2">Communication</p>
+            </div>
+            <div class="skill-card border border-border-c p-6 rounded-xs text-center hover:border-accent transition-all">
+              <p class="text-3xl mb-2">🔄</p>
+              <p class="font-display text-lg text-accent" data-i18n="skills.sk3">Adaptabilité</p>
+            </div>
+            <div class="skill-card border border-border-c p-6 rounded-xs text-center hover:border-accent transition-all">
+              <p class="text-3xl mb-2">🎯</p>
+              <p class="font-display text-lg text-accent" data-i18n="skills.sk4">Rigueur</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ TIMELINE ═══════════ -->
+    <section id="timeline" class="px-6 md:px-16 lg:px-24 py-24 md:py-32">
+      <div class="max-w-6xl">
+        <p class="text-accent font-mono text-xs tracking-widest mb-4 reveal">— 03 / PARCOURS</p>
+        <h2 class="font-display text-4xl md:text-6xl mb-16 reveal" data-i18n="timeline.title">Formation & Expérience</h2>
+
+        <div class="grid md:grid-cols-2 gap-16">
+
+          <!-- Formation -->
+          <div>
+            <h3 class="font-display text-2xl text-accent mb-8 reveal" data-i18n="timeline.formation">Formation</h3>
+            <div class="relative pl-8 border-l border-border-c" id="timeline-formation">
+              <div class="timeline-item mb-10 relative reveal">
+                <div class="absolute -left-[33px] top-1 w-3 h-3 bg-accent rounded-full"></div>
+                <p class="font-mono text-xs text-accent tracking-widest mb-1">2023 — 2024</p>
+                <p class="font-display text-xl mb-1">BTS CGE</p>
+                <p class="text-sm text-text-muted" data-i18n="timeline.f1">Comptabilité & Gestion d'Entreprise — Année 2</p>
+              </div>
+              <div class="timeline-item mb-10 relative reveal">
+                <div class="absolute -left-[33px] top-1 w-3 h-3 bg-accent rounded-full"></div>
+                <p class="font-mono text-xs text-accent tracking-widest mb-1">2022 — 2023</p>
+                <p class="font-display text-xl mb-1">BTS CGE</p>
+                <p class="text-sm text-text-muted" data-i18n="timeline.f2">Comptabilité & Gestion d'Entreprise — Année 1</p>
+              </div>
+              <div class="timeline-item mb-10 relative reveal">
+                <div class="absolute -left-[33px] top-1 w-3 h-3 bg-accent rounded-full"></div>
+                <p class="font-mono text-xs text-accent tracking-widest mb-1">2021 — 2022</p>
+                <p class="font-display text-xl mb-1" data-i18n="timeline.f3_title">Baccalauréat CGE</p>
+                <p class="text-sm text-text-muted" data-i18n="timeline.f3_desc">Série Comptabilité</p>
+              </div>
+              <div class="timeline-item mb-10 relative reveal">
+                <div class="absolute -left-[33px] top-1 w-3 h-3 bg-accent rounded-full"></div>
+                <p class="font-mono text-xs text-accent tracking-widest mb-1">2020 — 2021</p>
+                <p class="font-display text-xl mb-1" data-i18n="timeline.f4_title">Probatoire CGE</p>
+                <p class="text-sm text-text-muted" data-i18n="timeline.f4_desc">Série Comptabilité</p>
+              </div>
+              <div class="timeline-item relative reveal">
+                <div class="absolute -left-[33px] top-1 w-3 h-3 bg-accent rounded-full"></div>
+                <p class="font-mono text-xs text-accent tracking-widest mb-1">2019 — 2020</p>
+                <p class="font-display text-xl mb-1">BEPC</p>
+                <p class="text-sm text-text-muted" data-i18n="timeline.f5_desc">Brevet d'Études du Premier Cycle</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Expérience -->
+          <div>
+            <h3 class="font-display text-2xl text-accent mb-8 reveal" data-i18n="timeline.experience">Expérience</h3>
+            <div class="relative pl-8 border-l border-border-c">
+              <div class="timeline-item relative reveal">
+                <div class="absolute -left-[33px] top-1 w-3 h-3 bg-accent rounded-full"></div>
+                <p class="font-mono text-xs text-accent tracking-widest mb-1">2022 — 2023</p>
+                <p class="font-display text-xl mb-1" data-i18n="timeline.e1_title">Stage Académique</p>
+                <p class="text-sm text-text-primary/80 mb-2">AXX SOPROPEC S.A</p>
+                <p class="text-sm text-text-muted leading-relaxed" data-i18n="timeline.e1_desc">
+                  Immersion professionnelle au sein du service comptabilité : tenue des journaux, rapprochements bancaires, et participation à la mise en place des procédures comptables.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ SERVICES ═══════════ -->
+    <section id="services" class="px-6 md:px-16 lg:px-24 py-24 md:py-32 bg-bg-secondary border-y border-border-c">
+      <div class="max-w-6xl">
+        <p class="text-accent font-mono text-xs tracking-widest mb-4 reveal">— 04 / SERVICES</p>
+        <h2 class="font-display text-4xl md:text-6xl mb-16 reveal" data-i18n="services.title">Services</h2>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="service-card group border border-border-c p-8 rounded-xs hover:border-accent hover:bg-bg-primary transition-all reveal">
+            <p class="font-mono text-xs text-accent tracking-widest mb-3">01</p>
+            <h3 class="font-display text-2xl mb-3" data-i18n="services.s1_title">Tenue de comptabilité</h3>
+            <p class="text-sm text-text-muted leading-relaxed" data-i18n="services.s1_desc">Enregistrement des opérations, journaux, balance, grand-livre. Suivi mensuel rigoureux selon les normes OHADA.</p>
+          </div>
+          <div class="service-card group border border-border-c p-8 rounded-xs hover:border-accent hover:bg-bg-primary transition-all reveal">
+            <p class="font-mono text-xs text-accent tracking-widest mb-3">02</p>
+            <h3 class="font-display text-2xl mb-3" data-i18n="services.s2_title">Gestion de la paie</h3>
+            <p class="text-sm text-text-muted leading-relaxed" data-i18n="services.s2_desc">Bulletins de paie, déclarations CNPS, calcul des cotisations sociales avec SAGE PAIE.</p>
+          </div>
+          <div class="service-card group border border-border-c p-8 rounded-xs hover:border-accent hover:bg-bg-primary transition-all reveal">
+            <p class="font-mono text-xs text-accent tracking-widest mb-3">03</p>
+            <h3 class="font-display text-2xl mb-3" data-i18n="services.s3_title">États financiers</h3>
+            <p class="text-sm text-text-muted leading-relaxed" data-i18n="services.s3_desc">Bilan, compte de résultat, annexes. Production des liasses fiscales pour les déclarations.</p>
+          </div>
+          <div class="service-card group border border-border-c p-8 rounded-xs hover:border-accent hover:bg-bg-primary transition-all reveal">
+            <p class="font-mono text-xs text-accent tracking-widest mb-3">04</p>
+            <h3 class="font-display text-2xl mb-3" data-i18n="services.s4_title">Conseil en gestion</h3>
+            <p class="text-sm text-text-muted leading-relaxed" data-i18n="services.s4_desc">Accompagnement stratégique, optimisation des processus, contrôle de gestion pour PME.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ CONTACT ═══════════ -->
+    <section id="contact" class="px-6 md:px-16 lg:px-24 py-24 md:py-32">
+      <div class="max-w-6xl">
+        <p class="text-accent font-mono text-xs tracking-widest mb-4 reveal">— 05 / CONTACT</p>
+        <h2 class="font-display text-4xl md:text-6xl mb-6 reveal" data-i18n="contact.title">Discutons</h2>
+        <p class="text-text-muted text-lg mb-16 max-w-2xl reveal" data-i18n="contact.subtitle">Une opportunité, un projet, une mission ? Écrivez-moi, je vous réponds sous 24h.</p>
+
+        <div class="grid lg:grid-cols-5 gap-12">
+
+          <!-- Form -->
+          <form id="contact-form" class="lg:col-span-3 space-y-6 reveal" novalidate>
+            <div>
+              <label for="name" class="block text-xs font-mono tracking-widest text-text-muted mb-2" data-i18n="contact.name">NOM</label>
+              <input type="text" id="name" name="name" required class="w-full bg-transparent border-b border-border-c focus:border-accent outline-none py-3 text-text-primary transition-colors">
+            </div>
+            <div>
+              <label for="email" class="block text-xs font-mono tracking-widest text-text-muted mb-2">EMAIL</label>
+              <input type="email" id="email" name="email" required class="w-full bg-transparent border-b border-border-c focus:border-accent outline-none py-3 text-text-primary transition-colors">
+            </div>
+            <div>
+              <label for="message" class="block text-xs font-mono tracking-widest text-text-muted mb-2">MESSAGE</label>
+              <textarea id="message" name="message" rows="5" required class="w-full bg-transparent border-b border-border-c focus:border-accent outline-none py-3 text-text-primary transition-colors resize-none"></textarea>
+            </div>
+            <button type="submit" id="submit-btn" class="bg-accent text-bg-primary px-8 py-4 rounded-xs text-sm font-medium tracking-wider hover:bg-accent/90 transition-all w-full sm:w-auto touch-target">
+              <span data-i18n="contact.send">ENVOYER LE MESSAGE</span> →
+            </button>
+            <div id="form-status" class="text-sm font-mono"></div>
+          </form>
+
+          <!-- Coordonnées -->
+          <div class="lg:col-span-2 space-y-8 reveal">
+            <div>
+              <p class="text-xs font-mono tracking-widest text-text-muted mb-2">EMAIL</p>
+              <a href="/cdn-cgi/l/email-protection#9bfde9faf5f8f2e8edf4eefdf4dbfcf6faf2f7b5f8f4f6" class="text-lg hover:text-accent transition-colors break-all"><span class="__cf_email__" data-cfemail="315743505f525842475e44575e71565c50585d1f525e5c">[email&#160;protected]</span></a>
+            </div>
+            <div>
+              <p class="text-xs font-mono tracking-widest text-text-muted mb-2" data-i18n="contact.phone">TÉLÉPHONE</p>
+              <a href="tel:+237694268225" class="block text-lg hover:text-accent transition-colors">+237 694 26 82 25</a>
+              <a href="tel:+237620114013" class="block text-lg hover:text-accent transition-colors">+237 620 114 013</a>
+            </div>
+            <div>
+              <p class="text-xs font-mono tracking-widest text-text-muted mb-2" data-i18n="contact.location">LOCALISATION</p>
+              <p class="text-lg">Rond Point Damas</p>
+              <p class="text-text-muted">Yaoundé, Cameroun</p>
+            </div>
+            <div class="flex gap-3 pt-4">
+              <a href="https://wa.me/237694268225" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-12 h-12 border border-border-c hover:border-accent hover:text-accent flex items-center justify-center rounded-xs transition-all">WA</a>
+              <a href="/cdn-cgi/l/email-protection#204652414e434953564f55464f60474d41494c0e434f4d" aria-label="Email" class="w-12 h-12 border border-border-c hover:border-accent hover:text-accent flex items-center justify-center rounded-xs transition-all">@</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="border-t border-border-c px-6 md:px-16 lg:px-24 py-10">
+      <div class="max-w-6xl flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono tracking-wider text-text-muted">
+        <p data-i18n="footer.text">Conçu & développé avec passion · © 2025 Voufo Francis Bedel</p>
+        <p>YAOUNDÉ · CMR</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ═══════════ MOBILE BOTTOM NAV ═══════════ -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-bg-secondary/95 backdrop-blur-lg border-t border-border-c flex justify-around py-3" style="padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));">
+    <a href="#hero" aria-label="Accueil" class="bottom-nav text-xs flex flex-col items-center gap-1 text-text-muted hover:text-accent touch-target px-3">
+      <span class="text-lg">⌂</span>
+      <span data-i18n="nav.home_short">Accueil</span>
+    </a>
+    <a href="#skills" aria-label="Compétences" class="bottom-nav text-xs flex flex-col items-center gap-1 text-text-muted hover:text-accent touch-target px-3">
+      <span class="text-lg">✦</span>
+      <span data-i18n="nav.skills_short">Skills</span>
+    </a>
+    <a href="#services" aria-label="Services" class="bottom-nav text-xs flex flex-col items-center gap-1 text-text-muted hover:text-accent touch-target px-3">
+      <span class="text-lg">◈</span>
+      <span data-i18n="nav.services_short">Services</span>
+    </a>
+    <a href="#contact" aria-label="Contact" class="bottom-nav text-xs flex flex-col items-center gap-1 text-text-muted hover:text-accent touch-target px-3">
+      <span class="text-lg">✉</span>
+      <span data-i18n="nav.contact_short">Contact</span>
+    </a>
+  </nav>
+
+  <!-- Click sound (will be loaded lazily) -->
+  <audio id="click-sound" src="/assets/sounds/click.mp3" preload="none"></audio>
+
+  <!-- SCRIPTS -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/js/i18n.js"></script>
+  <script src="/js/animations.js"></script>
+  <script src="/js/contact.js"></script>
+  <script src="/js/main.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a097b9f94dfe64bb',t:'MTc4MTA4NzY5Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,261 @@
+/* ═══════════════════════════════════════
+   STYLE.CSS — Voufo Francis Bedel Portfolio
+   ═══════════════════════════════════════ */
+
+:root {
+  --bg-primary:    #0A0A0F;
+  --bg-secondary:  #111118;
+  --accent:        #C8A96E;
+  --accent-soft:   #E8C97E22;
+  --text-primary:  #F0EDE8;
+  --text-muted:    #7A7A8A;
+  --border:        #1E1E2E;
+}
+
+/* ─── Base ─── */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-feature-settings: "kern", "liga", "calt";
+  overflow-x: hidden;
+}
+
+/* Safe area pour iPhone notch */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ─── Touch targets (mobile) ─── */
+.touch-target {
+  touch-action: manipulation;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* ─── Reveal animations (state initial) ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Hero name letter animation ─── */
+#hero-name .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px) rotateX(-30deg);
+  transform-origin: bottom;
+}
+
+/* ─── Marquee animation ─── */
+.marquee {
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── Skill tabs ─── */
+.skill-tab {
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+  background: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+.skill-tab:hover {
+  color: var(--text-primary);
+}
+.skill-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.skill-panel {
+  animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Form inputs autofill ─── */
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--bg-primary) inset !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  caret-color: var(--accent);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ─── Mobile menu animation ─── */
+#mobile-menu.is-open {
+  display: flex !important;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ─── Hamburger animation ─── */
+#mobile-menu-btn.is-open #bar1 {
+  transform: translateY(6px) rotate(45deg);
+}
+#mobile-menu-btn.is-open #bar2 {
+  opacity: 0;
+}
+#mobile-menu-btn.is-open #bar3 {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ─── Nav link active state ─── */
+.nav-link.is-active,
+.bottom-nav.is-active {
+  color: var(--accent);
+}
+
+/* ─── Service card hover effect ─── */
+.service-card {
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 2px;
+  background: var(--accent);
+  transition: left 0.5s ease;
+}
+.service-card:hover::before {
+  left: 0;
+}
+
+/* ─── Form status messages ─── */
+#form-status.success {
+  color: #4ade80;
+}
+#form-status.error {
+  color: #f87171;
+}
+#form-status.loading {
+  color: var(--accent);
+}
+
+/* ─── Sidebar smooth entrance ─── */
+@media (min-width: 768px) {
+  #sidebar {
+    animation: slideInLeft 0.6s ease 0.5s both;
+  }
+}
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+/* ─── Loader ─── */
+#loader-name span {
+  display: inline-block;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ─── Focus visible (accessibilité clavier) ─── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+button:focus,
+a:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ─── Print ─── */
+@media print {
+  #loader, #sidebar, #mobile-menu, .marquee, nav.md\:hidden {
+    display: none !important;
+  }
+  main {
+    margin: 0 !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* ─── Small mobile adjustments ─── */
+@media (max-width: 380px) {
+  .font-display.text-5xl {
+    font-size: 2.5rem;
+  }
+}

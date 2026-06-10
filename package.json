@@ -1,0 +1,29 @@
+{
+  "name": "voufo-francis-bedel-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio professionnel de Voufo Francis Bedel — Comptable & Gestionnaire d'Entreprise",
+  "main": "api/contact.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "portfolio",
+    "comptable",
+    "accountant",
+    "cameroun",
+    "yaounde",
+    "sage-saari"
+  ],
+  "author": "Voufo Francis Bedel",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express-rate-limit": "^7.4.0",
+    "nodemailer": "^6.9.14"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}

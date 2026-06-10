@@ -1,0 +1,23 @@
+{
+  "name": "Voufo Francis Bedel — Comptable",
+  "short_name": "Francis Bedel",
+  "description": "Portfolio de Voufo Francis Bedel, Comptable & Gestionnaire d'Entreprise",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0F",
+  "theme_color": "#C8A96E",
+  "orientation": "portrait-primary",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
