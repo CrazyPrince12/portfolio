@@ -2,7 +2,7 @@
 
 > Portfolio professionnel de **Voufo Francis Bedel**, Comptable & Gestionnaire d'Entreprise basé à Yaoundé, Cameroun.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FYOUR_GITHUB_USERNAME%2Fportfolio&project-name=voufo-francis-bedel&repository-name=portfolio&env=GMAIL_USER,GMAIL_PASS,CONTACT_EMAIL&envDescription=Identifiants%20SMTP%20Gmail%20pour%20le%20formulaire%20de%20contact&envLink=https%3A%2F%2Fgithub.com%2FYOUR_GITHUB_USERNAME%2Fportfolio%23-configuration-des-variables-denvironnement)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/CrazyPrince12/portfolio)
 
 > 🔁 **Remplace `YOUR_GITHUB_USERNAME`** dans l'URL ci-dessus par ton vrai pseudo GitHub avant de pousser le dépôt — sinon le bouton ne fonctionnera pas.
 
